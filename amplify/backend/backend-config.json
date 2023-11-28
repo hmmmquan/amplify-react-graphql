@@ -1,4 +1,41 @@
 {
+  "api": {
+    "amplifyreactgraphql": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    },
+    "api19d5b70b": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyreactgraphqlc7ed26e5"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "amplifyreactgraphqlb7017054": {
       "customAuth": false,
@@ -23,6 +60,38 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "amplifyreactgraphqlc7ed26e5": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_amplifyreactgraphqlc7ed26e5_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyreactgraphqlc7ed26e5"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyreactgraphqlc7ed26e5_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyreactgraphqlc7ed26e5"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "imagestorage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }
